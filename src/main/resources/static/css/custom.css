@@ -1,0 +1,142 @@
+body.chat-page {
+    height: 100vh !important;
+    width: 100vw !important;
+    display: flex;
+    flex-direction: column !important;
+}
+
+.msgr-body {
+    flex: 1 !important;
+    display: flex;
+}
+
+.container-scroller {
+    height: inherit;
+    overflow-y: auto;
+}
+
+div.msg-group {
+    padding-left: 0;
+}
+
+div.msg-group p {
+    background-color: #dddddd;
+    margin: 3px 0;
+    padding: 5px 10px;
+    display: inline-block;
+    float: left;
+    clear: left;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+div.msg-group.msg-owner p {
+    background-color: #2196f3;
+    color: #FFFFFF;
+    border-radius: 20px 0 0 20px;
+    float: right;
+    clear: right;
+}
+
+div.msg-group p:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+div.msg-group p:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+div.msg-group.msg-owner p:first-child {
+    border-top-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+a.sent-by {
+    text-decoration: none;
+}
+
+.msgr-input-box {
+    padding: 20px 10px;
+    border-top: 1px solid #dddddd;
+}
+
+.msgr-input-box .form-inline {
+    display: flex;
+}
+
+.msgr-input-box .form-inline textarea {
+    border: none !important;
+    overflow: auto !important;
+    outline: none !important;
+    flex: 1;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    margin-right: 15px;
+    height: 48px;
+}
+
+.btn-circle {
+    width: 49px;
+    height: 49px;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 20px;
+    line-height: 2.00;
+    border-radius: 30px;
+}
+
+.btn-circle-micro {
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 13px;
+    line-height: 0.1;
+    border-radius: 30px;
+}
+
+.btn-circle-sm {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding: 2px 0;
+    font-size: 20px;
+    line-height: 1.65;
+    border-radius: 30px;
+}
+
+.btn-circle-lg {
+    width: 79px;
+    height: 79px;
+    text-align: center;
+    padding: 13px 0;
+    font-size: 30px;
+    line-height: 2.00;
+    border-radius: 70px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+
+
+

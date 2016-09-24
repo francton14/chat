@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>ChatBox</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/custom.css"/>
+</head>
+<body class="chat-page">
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-register"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ChatBox</a>
+            </div>
+            <div class="collapse navbar-collapse" id="nav-register">
+                <a href="/" class="btn btn-success navbar-btn navbar-right">Register</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="msgr-body">
+    <div class="container container-scroller">
+        <div class="row">
+            <div class="col-sm-12 col-lg-5 pull-left">
+                <h5>
+                    <small>Sent by <a href="#" class="sent-by"><i class="fa fa-user" aria-hidden="true"></i> Daisy Chain</a>
+                        - 5:15 AM
+                    </small>
+                </h5>
+                <div class="msg-group">
+                    <p>Cras justoddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd odio</p>
+                    <p>Dapibus ac facilisis in</p>
+                    <p>Morbi leo risus</p>
+                    <p>Porta ac consectetur ac</p>
+                    <p>Vestibulum at eros</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-5 pull-right">
+                <h5 class="text-right">
+                    <small>5:15 AM</small>
+                </h5>
+                <div class="msg-group msg-owner pull-right">
+                    <p class="text-right">Cras justo odio</p>
+                    <p>Dapibus ac facilisis in</p>
+                    <p>Morbi leo risus</p>
+                    <p>Porta ac consectetur ac</p>
+                    <p>Vestibulum at eros</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-5 pull-left">
+                <h5>
+                    <small>Sent by <a href="#" class="sent-by"><i class="fa fa-user" aria-hidden="true"></i> Daisy Chain</a>
+                        - 5:15 AM
+                    </small>
+                </h5>
+                <div class="msg-group">
+                    <p>Cras justo odio</p>
+                    <p>Dapibus ac facilisis in</p>
+                    <p>Morbi leo risus</p>
+                    <p>Porta ac consectetur ac</p>
+                    <p>Vestibulum at eros</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-5 pull-right">
+                <h5 class="text-right">
+                    <small>5:15 AM</small>
+                </h5>
+                <div class="msg-group msg-owner pull-right">
+                    <p class="text-right">Cras justo odio</p>
+                    <p>Dapibus ac facilisis in</p>
+                    <p>Morbi leo risus</p>
+                    <p>Porta ac consectetur ac</p>
+                    <p>Vestibulum at eros</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <div class="msgr-input-box">
+            <form class="form-inline">
+                <textarea id="textarea" class="form-control" placeholder="Say something."></textarea>
+                <button class="btn btn-success btn-circle"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</footer>
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/sockjs.min.js"></script>
+<script src="/js/stomp.min.js"></script>
+<script src="/js/pure.min.js"></script>
+<script src="/js/chat.js"></script>
+</body>
+</html>
