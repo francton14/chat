@@ -1,0 +1,6 @@
+.idea/
+target/
+chat.iml
+.mvn/wrapper/
+mvnw
+mvnw.cmd
