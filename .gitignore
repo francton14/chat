@@ -1,6 +1,10 @@
 .idea/
+
 target/
-chat.iml
-.mvn/wrapper/
+
+*.iml
+
+.mvn/
 mvnw
+
 mvnw.cmd
