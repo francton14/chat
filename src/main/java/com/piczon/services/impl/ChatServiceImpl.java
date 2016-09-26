@@ -59,7 +59,6 @@ public class ChatServiceImpl implements ChatService {
         message = messageDao.saveAndFlush(message);
         if (message.getId() != null) {
             messageShowResponse = EntityDtoConverter.entityToDto(message);
-            messageShowResponse.setOwner(username.equals(message.getUser().getUsername()));
             messageShowResponse.setStatus("ok");
         } else {
             messageShowResponse.setStatus("some_problems_occurred");

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 /**
  * Created by franc on 9/20/2016.
  */
@@ -23,6 +25,11 @@ public class UserController {
     @RequestMapping("/show/{userId}")
     public ResponseEntity<?> show(@PathVariable("userId") Long userId) {
         return userService.show(userId);
+    }
+
+    @RequestMapping("/current")
+    public ResponseEntity<?> currentUser(Principal principal) {
+        return userService.currentUser(principal.getName());
     }
 
 }

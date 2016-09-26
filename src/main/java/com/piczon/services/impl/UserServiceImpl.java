@@ -58,6 +58,12 @@ public class UserServiceImpl implements UserService {
         return ResponseEntity.notFound().build();
     }
 
+    @Override
+    public ResponseEntity<?> currentUser(String username) {
+        PredicateBuilder.Finish userPredicate = PredicateBuilder.USER.builder().where("username", username).finish();
+        return ResponseEntity.ok(EntityDtoConverter.entityToDto(userDao.findOne(userPredicate.getResult())));
+    }
+
     private List<String> getOnlineUsers() {
         List<String> onlineUsers = new ArrayList<>();
         sessionRegistry.getAllPrincipals().forEach(principal -> {

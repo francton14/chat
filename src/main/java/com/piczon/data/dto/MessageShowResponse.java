@@ -21,9 +21,6 @@ public class MessageShowResponse {
     private Date timeStamp;
 
     @JsonProperty
-    private Boolean isOwner;
-
-    @JsonProperty
     private UserShow user;
 
     @JsonProperty
@@ -51,14 +48,6 @@ public class MessageShowResponse {
 
     public void setTimeStamp(Date timeStamp) {
         this.timeStamp = timeStamp;
-    }
-
-    public Boolean getOwner() {
-        return isOwner;
-    }
-
-    public void setOwner(Boolean owner) {
-        isOwner = owner;
     }
 
     public UserShow getUser() {

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>ChatBox</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/custom.css"/>
     <link rel="stylesheet" href="/css/custom.css"/>
 </head>
-<body class="chat-page">
+<body>
 <header>
     <nav class="navbar navbar-inverse">
         <div class="container">
@@ -24,32 +24,13 @@
             </div>
             <div class="collapse navbar-collapse" id="nav-register">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/user/profile">Profile</a></li>
+                    <li><a href="/chat">Chat</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<main id="msgr-container" class="container">
-    <span class="push-to-bottom"></span>
-</main>
-<footer>
-    <div class="container">
-        <div class="msgr-input-box">
-            <form id="msg-input-form" class="form-inline">
-                <textarea id="textarea" class="form-control" placeholder="Say something."></textarea>
-                <button id="send_message" class="btn btn-success btn-circle" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-</footer>
-<script src="/js/jquery-3.1.0.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/sockjs.min.js"></script>
-<script src="/js/stomp.min.js"></script>
-<script src="/js/jsrender.min.js"></script>
-<script src="/js/chat.js"></script>
+<main></main>
 </body>
 </html>

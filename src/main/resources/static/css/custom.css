@@ -5,14 +5,16 @@ body.chat-page {
     flex-direction: column !important;
 }
 
-.msgr-body {
-    flex: 1 !important;
-    display: flex;
+main.container {
+    height: 600px;
+    padding-bottom: 15px;
+    overflow-y: auto;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
-.container-scroller {
-    height: inherit;
-    overflow-y: auto;
+main.container span.push-to-bottom {
+    flex: 1 !important;
 }
 
 div.msg-group {
@@ -26,31 +28,14 @@ div.msg-group p {
     display: inline-block;
     float: left;
     clear: left;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
 }
 
 div.msg-group.msg-owner p {
     background-color: #2196f3;
     color: #FFFFFF;
-    border-radius: 20px 0 0 20px;
     float: right;
     clear: right;
-}
-
-div.msg-group p:first-child {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-div.msg-group p:last-child {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-
-div.msg-group.msg-owner p:first-child {
-    border-top-right-radius: 20px;
-    border-top-right-radius: 20px;
 }
 
 a.sent-by {
@@ -68,7 +53,7 @@ a.sent-by {
 
 .msgr-input-box .form-inline textarea {
     border: none !important;
-    overflow: auto !important;
+    overflow: hidden !important;
     outline: none !important;
     flex: 1;
     -webkit-box-shadow: none !important;
@@ -120,22 +105,37 @@ a.sent-by {
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
+    main.container {
+        margin: 0 !important;
+    }
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
+    main.container {
+        margin: 0 !important;
+    }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+    main.container {
+        margin: 0 auto !important;
+    }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+    main.container {
+        margin: 0 auto !important;
+    }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+    main.container {
+        margin: 0 auto !important;
+    }
 }
 
 

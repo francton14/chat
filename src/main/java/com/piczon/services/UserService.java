@@ -11,4 +11,6 @@ public interface UserService {
 
     public ResponseEntity<?> show(Long userId);
 
+    public ResponseEntity<?> currentUser(String username);
+
 }
