@@ -1,41 +1,30 @@
 package com.piczon.data.dto;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import java.util.Date;
 
 /**
- * Created by franc on 9/19/2016.
+ * Created by franc on 9/27/2016.
  */
-public class UserCreate {
+public class UserUpdate {
 
-    @NotEmpty
     private String username;
-
-    @NotEmpty
-    private String password;
-
-    @NotEmpty
+    private String oldPassword;
+    private String newPassword;
     private String confirmPassword;
-
-    @NotEmpty
     private String firstName;
-
-    @NotEmpty
     private String lastName;
 
-    @NotEmpty
     @Email
     private String email;
 
-    @NotNull
     @Past
     @DateTimeFormat(pattern = "MM/dd/yyyy")
     private Date birthday;
+    private String aboutMe;
 
     public String getUsername() {
         return username;
@@ -45,12 +34,20 @@ public class UserCreate {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getOldPassword() {
+        return oldPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 
     public String getConfirmPassword() {
@@ -93,4 +90,26 @@ public class UserCreate {
         this.birthday = birthday;
     }
 
+    public String getAboutMe() {
+        return aboutMe;
+    }
+
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
+    }
+
+    @Override
+    public String toString() {
+        return "UserUpdate{" +
+                "username='" + username + '\'' +
+                ", oldPassword='" + oldPassword + '\'' +
+                ", newPassword='" + newPassword + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", birthday=" + birthday +
+                ", aboutMe='" + aboutMe + '\'' +
+                '}';
+    }
 }

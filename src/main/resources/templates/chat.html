@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -24,21 +24,21 @@
             </div>
             <div class="collapse navbar-collapse" id="nav-register">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/user/profile">Profile</a></li>
+                    <li><a th:href="@{/user/{username}/profile(username=${user.username})}">Profile</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<main id="msgr-container" class="container">
+<main id="msgr-container" class="chat-container container">
     <span class="push-to-bottom"></span>
 </main>
 <footer>
     <div class="container">
         <div class="msgr-input-box">
             <form id="msg-input-form" class="form-inline">
-                <textarea id="textarea" class="form-control" placeholder="Say something."></textarea>
+                <textarea id="textarea" class="form-control" placeholder="Say something." autofocus=""></textarea>
                 <button id="send_message" class="btn btn-success btn-circle" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                 </button>
             </form>

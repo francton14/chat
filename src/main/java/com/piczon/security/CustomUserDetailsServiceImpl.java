@@ -1,4 +1,4 @@
-package com.piczon.services.impl;
+package com.piczon.security;
 
 import com.piczon.data.dao.UserDao;
 import com.piczon.data.dao.predicates.PredicateBuilder;
@@ -33,7 +33,7 @@ public class CustomUserDetailsServiceImpl implements UserDetailsService {
     private User buildUser(com.piczon.data.entities.User user) {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-        return new User(user.getUsername(), user.getPassword(), grantedAuthorities);
+        return new UpdatableUser(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 
 }

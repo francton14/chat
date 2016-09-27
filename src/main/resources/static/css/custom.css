@@ -5,15 +5,15 @@ body.chat-page {
     flex-direction: column !important;
 }
 
-main.container {
-    height: 600px;
+main.chat-container {
+    flex: 1 !important;
     padding-bottom: 15px;
     overflow-y: auto;
     display: flex !important;
     flex-direction: column !important;
 }
 
-main.container span.push-to-bottom {
+main.chat-container span.push-to-bottom {
     flex: 1 !important;
 }
 
@@ -22,7 +22,7 @@ div.msg-group {
 }
 
 div.msg-group p {
-    background-color: #dddddd;
+    background-color: #3d3d3d;
     margin: 3px 0;
     padding: 5px 10px;
     display: inline-block;
@@ -32,7 +32,7 @@ div.msg-group p {
 }
 
 div.msg-group.msg-owner p {
-    background-color: #2196f3;
+    background-color: #375a7f;
     color: #FFFFFF;
     float: right;
     clear: right;
@@ -105,37 +105,71 @@ a.sent-by {
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
-    main.container {
+    main.chat-container {
         margin: 0 !important;
     }
 }
 
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
-    main.container {
+    main.chat-container {
         margin: 0 !important;
     }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-    main.container {
+    main.chat-container {
         margin: 0 auto !important;
     }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-    main.container {
+    main.chat-container {
         margin: 0 auto !important;
     }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-    main.container {
+    main.chat-container {
         margin: 0 auto !important;
     }
+}
+
+img.profile-image {
+    margin: 0 auto !important;
+}
+
+a.image-change {
+    margin: 15px 0;
+}
+
+form.update-info {
+    margin: 0 15px;
+}
+
+.manage-img-btn {
+    width: 200px;
+}
+
+.manage-img-btn {
+    margin-top: 15px;
+}
+
+#image_form_input {
+    display: none;
+}
+
+.circle-img {
+    height: 300px;
+    width: 300px;
+    border: 5px solid #00bc8c;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 auto;
 }
 
 

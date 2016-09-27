@@ -16,6 +16,10 @@ public class EntityDtoConverter {
         userShow.setUsername(user.getUsername());
         userShow.setFirstName(user.getFirstName());
         userShow.setLastName(user.getLastName());
+        userShow.setEmail(user.getEmail());
+        userShow.setBirthday(user.getBirthday());
+        userShow.setImageFilename(user.getImageFilename());
+        userShow.setAboutMe(user.getAboutMe());
         return userShow;
     }
 

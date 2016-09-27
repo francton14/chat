@@ -8,6 +8,9 @@ import com.piczon.services.utils.RegistrationValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,12 +39,18 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String index(Model model) {
+        if (!isAuthenticated()) {
+            return "redirect:/chat";
+        }
         model.addAttribute("userCreate", new UserCreate());
         return "index";
     }
 
     @Override
     public String login(boolean error, Model model) {
+        if (!isAuthenticated()) {
+            return "redirect:/chat";
+        }
         if (error) {
             model.addAttribute("error", environment.getProperty("messages.login_error"));
         }
@@ -57,9 +66,16 @@ public class AuthServiceImpl implements AuthService {
             user.setPassword(passwordEncoder.encode(userCreate.getPassword()));
             user.setFirstName(userCreate.getFirstName());
             user.setLastName(userCreate.getLastName());
+            user.setEmail(userCreate.getEmail());
+            user.setBirthday(userCreate.getBirthday());
             userDao.saveAndFlush(user);
         }
         return "index";
+    }
+
+    private boolean isAuthenticated() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication instanceof AnonymousAuthenticationToken;
     }
 
 }

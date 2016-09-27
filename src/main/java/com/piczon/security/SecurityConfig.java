@@ -19,9 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 /**
  * Created by franc on 9/19/2016.
  */
-@Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -38,9 +36,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/chat").authenticated()
-                .anyRequest().permitAll()
-                .and()
+                .antMatchers("/chat/**").hasRole("USER")
+                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/socks/**").hasRole("USER")
+                .antMatchers("/notifications/**").hasRole("USER")
+                .anyRequest().permitAll();
+        http
                 .formLogin().loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
@@ -53,7 +54,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/")
                 .permitAll()
                 .and()
-                .sessionManagement().maximumSessions(1).sessionRegistry(sessionRegistry()).expiredUrl("/")
+                .sessionManagement().invalidSessionUrl("/").maximumSessions(1).sessionRegistry(sessionRegistry()).expiredUrl("/")
                 .and()
                 .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 .and()

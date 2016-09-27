@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>ChatBox</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/custom.css"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-register"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/chat">ChatBox</a>
+            </div>
+            <div class="collapse navbar-collapse" id="nav-register">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/chat">Chat</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main class="container">
+    <div class="well">
+        <div class="page-header">
+            <h1><i class="fa fa-user" aria-hidden="true"></i> Update Profile
+                <small th:text="${user.username}"></small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        User Information
+                    </div>
+                    <div class="panel-body">
+                        <form th:action="@{/user/update}" th:object="${userUpdate}" method="post"
+                              id="update_form" class="update-info">
+                            <div class="form-group" th:classappend="${#fields.hasErrors('username')}? 'has-error'">
+                                <label for="username" class="control-label">Username</label>
+                                <div class="input-group">
+                                    <input type="text" th:field="*{username}" id="username" class="form-control"
+                                           aria-describedby="username_help"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" data-toggle="popover"
+                                                data-trigger="focus" data-placement="left" title="Previous"
+                                                th:attr="data-content=${user.username}">
+                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <span id="username_help" class="help-block" th:errors="*{username}">[error]</span>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('oldPassword')}? 'has-error'">
+                                <label for="old_password" class="control-label">Old Password</label>
+                                <input type="password" th:field="*{oldPassword}" id="old_password" class="form-control"
+                                       aria-describedby="old_password_help"/>
+                                <span id="old_password_help" class="help-block"
+                                      th:errors="*{oldPassword}">[error]</span>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('newPassword')}? 'has-error'">
+                                <label for="new_password" class="control-label">New Password</label>
+                                <input type="password" th:field="*{newPassword}" id="new_password" class="form-control"
+                                       aria-describedby="new_password_help"/>
+                                <span id="new_password_help" class="help-block"
+                                      th:errors="*{newPassword}">[error]</span>
+                            </div>
+                            <div class="form-group"
+                                 th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error'">
+                                <label for="confirm_password" class="control-label">Confirm Password</label>
+                                <input type="password" th:field="*{confirmPassword}" id="confirm_password"
+                                       class="form-control"
+                                       aria-describedby="confirm_password_help"/>
+                                <span id="confirm_password_help" class="help-block" th:errors="*{confirmPassword}">[error]</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="first_name" class="control-label">First Name</label>
+                                <div class="input-group">
+                                    <input type="text" th:field="*{firstName}" id="first_name" class="form-control"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" data-toggle="popover"
+                                                data-trigger="focus" data-placement="left" title="Previous"
+                                                th:attr="data-content=${user.firstName}">
+                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name" class="control-label">Last Name</label>
+                                <div class="input-group">
+                                    <input type="text" th:field="*{lastName}" id="last_name" class="form-control"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" data-toggle="popover"
+                                                data-trigger="focus" data-placement="left" title="Previous"
+                                                th:attr="data-content=${user.lastName}">
+                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+                                <label for="email" class="control-label">Email Address</label>
+                                <div class="input-group">
+                                    <input type="email" th:field="*{email}" id="email" class="form-control"
+                                           aria-describedby="email_help"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" data-toggle="popover"
+                                                data-trigger="focus" data-placement="left" title="Previous"
+                                                th:attr="data-content=${user.email}">
+                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <span id="email_help" class="help-block" th:errors="*{email}">[error]</span>
+                            </div>
+                            <div class="form-group" th:classappend="${#fields.hasErrors('birthday')}? 'has-error'">
+                                <label for="birthday">Birthday</label>
+                                <div class="input-group">
+                                    <input type="date" th:field="*{birthday}" id="birthday" class="form-control"
+                                           aria-describedby="birthday_help"/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button" data-toggle="popover"
+                                                data-trigger="focus" data-placement="left" title="Previous"
+                                                th:attr="data-content=${#dates.format(user.birthday, 'MMMMM d, yyyy')}">
+                                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                                <span id="birthday_help" class="help-block" th:errors="*{birthday}">[error]</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="about_me" class="control-label">About Me</label>
+                                <textarea rows="3" th:field="*{aboutMe}" id="about_me" class="form-control"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="control-group">
+                            <div class="controls text-right">
+                                <button id="submit_update_form" class="btn btn-success">Save</button>
+                                <button id="clear_update_form" type="reset" class="btn btn-link">Clear</button>
+                                <a th:href="@{/user/{username}/profile(username=${user.username})}" class="btn btn-danger">Go back to Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/update-profile.js"></script>
+</body>
+</html>

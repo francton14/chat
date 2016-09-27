@@ -1,5 +1,7 @@
 package com.piczon.data.entities;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,6 +10,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "message")
+@DynamicUpdate
 public class Message {
 
     @Id
@@ -15,7 +18,7 @@ public class Message {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "text")
+    @Column(name = "text", columnDefinition = "text")
     private String text;
 
     @Temporal(TemporalType.TIMESTAMP)

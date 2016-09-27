@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title>ChatBox</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/custom.css"/>
+    <link rel="stylesheet" href="/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/custom.css"/>
 </head>
 <body>
@@ -31,6 +31,74 @@
         </div>
     </nav>
 </header>
-<main></main>
+<main class="container">
+    <div class="well">
+        <div class="page-header">
+            <h1><i class="fa fa-user" aria-hidden="true"></i> Profile
+                <small th:text="${user.username}"></small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-1/2 col-md-4">
+                <div id="image_preview" class="circle-img"
+                     th:styleappend="${(user.imageFilename != null and !#strings.isEmpty(user.imageFilename))? 'background-image: url(/user/' + user.username + '/profile/image)' : 'background-image: url(/img/default_img.png)'}"></div>
+                <a href="/user/update/image" class="btn btn-primary center-block image-change" th:if="${isOwner}">Change Picture</a>
+            </div>
+            <div class="col-xs-12 col-md-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        User Information
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <td class="col-md-4"></td>
+                                <td class="col-md-8"></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Username</td>
+                                <td th:text="${user.username}"></td>
+                            </tr>
+                            <tr>
+                                <td>First Name</td>
+                                <td th:text="${user.firstName}"></td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td th:text="${user.lastName}"></td>
+                            </tr>
+                            <tr>
+                                <td>Email Address</td>
+                                <td th:text="${user.email}"></td>
+                            </tr>
+                            <tr>
+                                <td>Birthday</td>
+                                <td th:text="${#dates.format(user.birthday, 'MMMMM d, yyyy')}"></td>
+                            </tr>
+                            <tr>
+                                <td>About me</td>
+                                <td th:text="${user.aboutMe}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="panel-footer" th:if="${isOwner}">
+                        <div class="control-group">
+                            <div class="controls text-right">
+                                <a href="/user/update"><i class="fa fa-wrench" aria-hidden="true"></i> Update
+                                    Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/js/jquery-3.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

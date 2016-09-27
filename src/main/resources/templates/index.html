@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>ChatBox</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/custom.css"/>
@@ -33,7 +35,6 @@
                                class="form-control"/>
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
-                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                 </form>
             </div>
         </div>
@@ -74,9 +75,18 @@
                        aria-describedby="reg_last_name_help"/>
                 <span id="reg_last_name_help" class="help-block" th:errors="*{lastName}">[error]</span>
             </div>
+            <div class="form-group" th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+                <label for="reg_email" class="control-label">Email Address</label>
+                <input type="email" th:field="*{email}" id="reg_email" class="form-control" aria-describedby="reg_email_help"/>
+                <span id="reg_email_help" class="help-block" th:errors="*{email}">[error]</span>
+            </div>
+            <div class="form-group" th:classappend="${#fields.hasErrors('birthday')}? 'has-error'">
+                <label for="reg_birthday">Birthday</label>
+                <input type="date" th:field="*{birthday}" id="reg_birthday" class="form-control" aria-describedby="reg_birthday_help"/>
+                <span id="reg_birthday_help" class="help-block" th:errors="*{birthday}">[error]</span>
+            </div>
             <button type="submit" class="btn btn-success">Register</button>
             <button type="reset" class="btn btn-link">Clear</button>
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
         </form>
     </div>
 </main>
