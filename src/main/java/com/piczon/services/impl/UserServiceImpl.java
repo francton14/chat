@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserService {
         FileSystemResource fileSystemResource = null;
         if (userDao.exists(userPredicate.getResult())) {
             User user = userDao.findOne(userPredicate.getResult());
-            String path = environment.getProperty("file-system.storage.image") + user.getUsername() + "/" + user.getImageFilename();
+            String path = environment.getProperty("file-system.storage.image") + user.getId() + "/" + user.getImageFilename();
             fileSystemResource = new FileSystemResource(path);
         }
         return fileSystemResource;
@@ -164,7 +164,8 @@ public class UserServiceImpl implements UserService {
         PredicateBuilder.Finish userPredicate = PredicateBuilder.USER.builder().where("username", username).finish();
         User user = userDao.findOne(userPredicate.getResult());
         deleteUserImage(user);
-        String path = environment.getProperty("file-system.storage.image") + user.getUsername() + "/" + multipartFile.getOriginalFilename();
+        String path = environment.getProperty("file-system.storage.image") + user.getId() + "/" + multipartFile.getOriginalFilename();
+        System.out.println("Path: " + path);
         try {
             File file = new File(path);
             file.getParentFile().mkdirs();
@@ -200,7 +201,7 @@ public class UserServiceImpl implements UserService {
 
     private void deleteUserImage(User user) {
         if (StringUtils.isNotEmpty(user.getImageFilename())) {
-            new File(environment.getProperty("file-system.storage.image") + user.getUsername() + "/" + user.getImageFilename()).delete();
+            new File(environment.getProperty("file-system.storage.image") + user.getId() + "/" + user.getImageFilename()).delete();
         }
     }
 

@@ -17,25 +17,46 @@ main.chat-container span.push-to-bottom {
     flex: 1 !important;
 }
 
+main.chat-container .user-info {
+    line-height: 50px;
+}
+
+div.msg-header {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 5px;
+}
+
+div.msg-header p {
+    align-self: center;
+    margin: 0 10px;
+}
+
 div.msg-group {
+    display: flex;
+    flex-flow: column nowrap;
     padding-left: 0;
 }
 
-div.msg-group p {
+div.msg-group div {
+    align-self: flex-start;
     background-color: #3d3d3d;
     margin: 3px 0;
     padding: 5px 10px;
-    display: inline-block;
-    float: left;
-    clear: left;
     border-radius: 20px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
-div.msg-group.msg-owner p {
+div.msg-group.msg-owner div {
+    align-self: flex-end;
     background-color: #375a7f;
     color: #FFFFFF;
-    float: right;
-    clear: right;
 }
 
 a.sent-by {
@@ -169,6 +190,15 @@ form.update-info {
     border-radius: 50%;
     background-size: cover;
     background-position: center center;
+}
+
+.circle-img.small {
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+
+.profile_img {
     margin: 0 auto;
 }
 

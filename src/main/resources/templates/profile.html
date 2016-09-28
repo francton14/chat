@@ -40,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-xs-1/2 col-md-4">
-                <div id="image_preview" class="circle-img"
+                <div id="image_preview" class="circle-img profile_img"
                      th:styleappend="${(user.imageFilename != null and !#strings.isEmpty(user.imageFilename))? 'background-image: url(/user/' + user.username + '/profile/image)' : 'background-image: url(/img/default_img.png)'}"></div>
                 <a href="/user/update/image" class="btn btn-primary center-block image-change" th:if="${isOwner}">Change Picture</a>
             </div>

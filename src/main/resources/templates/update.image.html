@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta name="_csrf" th:content="${_csrf.token}"/>
-    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
     <title>ChatBox</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/font-awesome.min.css"/>
@@ -48,11 +46,11 @@
                         Profile Picture
                     </div>
                     <div class="panel-body">
-                        <div id="image_preview" class="circle-img"
+                        <div id="image_preview" class="circle-img profile_img"
                              th:styleappend="${(user.imageFilename != null and !#strings.isEmpty(user.imageFilename))? 'background-image: url(/user/' + user.username + '/profile/image)' : 'background-image: url(/img/default_img.png)'}"></div>
                         <a href="/user/update/remove_image" class="btn btn-danger center-block manage-img-btn"
                            th:if="${user.imageFilename != null and !#strings.isEmpty(user.imageFilename)}">Remove</a>
-                        <form th:action="@{/user/update/upload_image}" method="post" enctype="multipart/form-data"
+                        <form th:action="@{/user/update/upload_image((${_csrf.parameterName})=(${_csrf.token}))}" method="post" enctype="multipart/form-data"
                               id="image_form">
                             <input type="file" name="image" id="image_form_input"/>
                             <button id="image_form_browse" class="btn btn-primary center-block manage-img-btn"
